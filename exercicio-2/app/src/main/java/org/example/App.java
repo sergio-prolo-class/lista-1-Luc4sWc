@@ -3,12 +3,183 @@
  */
 package org.example;
 
-public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
+import java.text.DecimalFormat;
+import java.util.Scanner;
 
+public class App {
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+        System.out.print("Digite até 4 cores (1º faixa | 2º faixa | 3º multiplicador | 4º tolerância da resistência (opicional) e escreva cada cor dando espaço como intervalo #Nãosufoqueoprogramador): ");
+        if (args.length == 4) {
+            String cor1 = args[0];
+            String cor2 = args[1];
+            String cor3 = args[2];
+            String cor4 = args[3];
+
+            int faixa1 = 0, faixa2 = 0;
+            double m = 0, tlr = 0;
+
+            switch (cor1) {
+                case "preto": faixa1 = 0;break;
+                case "marrom": faixa1 = 1;break;
+                case "vermelho": faixa1 = 2;break;
+                case "laranja": faixa1 = 3;break;
+                case "amarelo": faixa1 = 4;break;
+                case "verde": faixa1 = 5;break;
+                case "azul": faixa1 = 6;break;
+                case "violeta": faixa1 = 7;break;
+                case "cinza": faixa1 = 8;break;
+                case "branco": faixa1 = 9;break;
+                default: System.out.println("Erro: cor desconhecida, o correto é ser uma das cores: preto, marrom, vermelho, laranja, amarelo, verde, azul, violeta, cinza, branco");return;
+            }
+
+            switch (cor2) {
+                case "preto": faixa2 = 0;break;
+                case "marrom": faixa2 = 1;break;
+                case "vermelho": faixa2 = 2;break;
+                case "laranja": faixa2 = 3;break;
+                case "amarelo": faixa2 = 4;break;
+                case "verde": faixa2 = 5;break;
+                case "azul": faixa2 = 6;break;
+                case "violeta": faixa2 = 7;break;
+                case "cinza": faixa2 = 8;break;
+                case "branco": faixa2 = 9;break;
+                default: System.out.println("Erro: cor desconhecida, o correto é ser uma das cores: preto, marrom, vermelho, laranja, amarelo, verde, azul, violeta, cinza, branco");return;
+            }
+
+            switch (cor3) {
+                case "preto": m = 1;break;
+                case "marrom": m = 10;break;
+                case "vermelho": m = 100;break;
+                case "laranja": m = 1000;break;
+                case "amarelo": m = 10000;break;
+                case "verde": m = 100000;break;
+                case "azul": m = 1000000;break;
+                case "violeta": m = 10000000;break;
+                case "cinza": m = 100000000;break;
+                case "branco": m = 1000000000;break;
+                case "ouro": m = 0.1;break;
+                case "prata": m = 0.01;break;
+                default: System.out.println("Erro: cor desconhecida, o correto é ser uma das cores: preto, marrom, vermelho, laranja, amarelo, verde, azul, violeta, cinza, branco, ouro ou prata");return;
+            }
+
+            switch (cor4) {
+                case "preto": tlr = 0;break;
+                case "marrom": tlr = 1;break;
+                case "vermelho": tlr = 2;break;
+                case "verde": tlr = 0.5;break;
+                case "azul": tlr = 0.25;break;
+                case "violeta": tlr = 0.1;break;
+                case "cinza": tlr = 0.05;break;
+                case "ouro": tlr = 5;break;
+                case "prata": tlr = 10;break;
+                case " ": tlr = 20;break;
+                default: System.out.println("Erro: cor desconhecida, o correto é ser uma das cores: preto, marrom, vermelho, verde, azul, violeta, cinza, ouro, prata ou ainda só um espaço vazio já que é opcional");return;
+            }
+
+            double resultado = 0;
+            resultado = (faixa1 * 10 + faixa2) * m;
+
+            DecimalFormat df = new DecimalFormat("#.#"); //descobri que dá pra imprimir do jeito que eu quero sem zeros adicionais
+            DecimalFormat tor = new DecimalFormat("#.##");
+            int ordemDeGrandeza = (int) Math.log10(resultado); //para ver se o resultado tá em que casa de milhar
+
+            if (ordemDeGrandeza < 3) {
+                System.out.printf("Resultado: %s Ohms (± %s%%)\n", df.format(resultado), tor.format(tlr));
+                return;
+            } else if (ordemDeGrandeza < 6) {
+                resultado = resultado / 1000;
+                System.out.printf("Resultado: %s K Ohms (± %s%%)\n", df.format(resultado), tor.format(tlr));
+                return;
+            } else if (ordemDeGrandeza < 9) {
+                resultado = resultado / 1000000;
+                System.out.printf("Resultado: %s M Ohms (± %s%%)\n", df.format(resultado), tor.format(tlr));
+                return;
+            } else {
+                resultado = resultado / 1000000000;
+                System.out.printf("Resultado: %s G Ohms (± %s%%)\n", df.format(resultado), tor.format(tlr));
+                return;
+            }
+
+        }
+        else if (args.length == 3) {
+            String cor1 = args[0];
+            String cor2 = args[1];
+            String cor3 = args[2];
+
+            int faixa1 = 0, faixa2 = 0;
+            double m = 0, tlr = 20;
+
+            switch (cor1) {
+                case "preto": faixa1 = 0;break;
+                case "marrom": faixa1 = 1;break;
+                case "vermelho": faixa1 = 2;break;
+                case "laranja": faixa1 = 3;break;
+                case "amarelo": faixa1 = 4;break;
+                case "verde": faixa1 = 5;break;
+                case "azul": faixa1 = 6;break;
+                case "violeta": faixa1 = 7;break;
+                case "cinza": faixa1 = 8;break;
+                case "branco": faixa1 = 9;break;
+                default: System.out.println("Erro: cor desconhecida, o correto é ser uma das cores: preto, marrom, vermelho, laranja, amarelo, verde, azul, violeta, cinza, branco");return;
+            }
+
+            switch (cor2) {
+                case "preto": faixa2 = 0;break;
+                case "marrom": faixa2 = 1;break;
+                case "vermelho": faixa2 = 2;break;
+                case "laranja": faixa2 = 3;break;
+                case "amarelo": faixa2 = 4;break;
+                case "verde": faixa2 = 5;break;
+                case "azul": faixa2 = 6;break;
+                case "violeta": faixa2 = 7;break;
+                case "cinza": faixa2 = 8;break;
+                case "branco": faixa2 = 9;break;
+                default: System.out.println("Erro: cor desconhecida, o correto é ser uma das cores: preto, marrom, vermelho, laranja, amarelo, verde, azul, violeta, cinza, branco");return;
+            }
+
+            switch (cor3) {
+                case "preto": m = 1;break;
+                case "marrom": m = 10;break;
+                case "vermelho": m = 100;break;
+                case "laranja": m = 1000;break;
+                case "amarelo": m = 10000;break;
+                case "verde": m = 100000;break;
+                case "azul": m = 1000000;break;
+                case "violeta": m = 10000000;break;
+                case "cinza": m = 100000000;break;
+                case "branco": m = 1000000000;break;
+                case "ouro": m = 0.1;break;
+                case "prata": m = 0.01;break;
+                default: System.out.println("Erro: cor desconhecida, o correto é ser uma das cores: preto, marrom, vermelho, laranja, amarelo, verde, azul, violeta, cinza, branco, ouro ou prata");return;
+            }
+
+            double resultado = 0;
+            resultado = (faixa1 * 10 + faixa2) * m;
+
+            DecimalFormat df = new DecimalFormat("#.#"); //descobri que dá pra imprimir do jeito que eu quero sem zeros adicionais
+            DecimalFormat tor = new DecimalFormat("#.##");
+            int ordemDeGrandeza = (int) Math.log10(resultado); //para ver se o resultado tá em que casa de milhar
+
+            if (ordemDeGrandeza < 3) {
+                System.out.printf("Resultado: %s Ohms (± %s%%)\n", df.format(resultado), tor.format(tlr));
+                return;
+            } else if (ordemDeGrandeza < 6) {
+                resultado = resultado / 1000;
+                System.out.printf("Resultado: %s K Ohms (± %s%%)\n", df.format(resultado), tor.format(tlr));
+                return;
+            } else if (ordemDeGrandeza < 9) {
+                resultado = resultado / 1000000;
+                System.out.printf("Resultado: %s M Ohms (± %s%%)\n", df.format(resultado), tor.format(tlr));
+                return;
+            } else {
+                resultado = resultado / 1000000000;
+                System.out.printf("Resultado: %s G Ohms (± %s%%)\n", df.format(resultado), tor.format(tlr));
+                return;
+            }
+        }
+        else{
+            System.out.println("Erro: colocou mais cores que o descrito no enunciado, pô aí se me quebra");
+            return;
+        }
     }
 }
