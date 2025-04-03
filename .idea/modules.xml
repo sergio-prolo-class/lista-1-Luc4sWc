@@ -8,9 +8,7 @@
       <module fileurl="file://$PROJECT_DIR$/exercicio-2/app/src/main/main3.iml" filepath="$PROJECT_DIR$/exercicio-2/app/src/main/main3.iml" />
       <module fileurl="file://$PROJECT_DIR$/exercicio-4/app/src/main/main4.iml" filepath="$PROJECT_DIR$/exercicio-4/app/src/main/main4.iml" />
       <module fileurl="file://$PROJECT_DIR$/exercicio-1/app/src/test/test.iml" filepath="$PROJECT_DIR$/exercicio-1/app/src/test/test.iml" />
-      <module fileurl="file://$PROJECT_DIR$/exercicio-2/app/src/test/test2.iml" filepath="$PROJECT_DIR$/exercicio-2/app/src/test/test2.iml" />
       <module fileurl="file://$PROJECT_DIR$/exercicio-4/app/src/test/test3.iml" filepath="$PROJECT_DIR$/exercicio-4/app/src/test/test3.iml" />
-      <module fileurl="file://$PROJECT_DIR$/exercicio-3/app/src/test/test4.iml" filepath="$PROJECT_DIR$/exercicio-3/app/src/test/test4.iml" />
     </modules>
   </component>
 </project>

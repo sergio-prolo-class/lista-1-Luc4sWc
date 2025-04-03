@@ -3,12 +3,103 @@
  */
 package org.example;
 
-public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
+import java.util.Random;
+import java.util.Scanner;
 
+public class App {
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+        Scanner teclado = new Scanner(System.in);
+        System.out.println("Digite play para iniciar o jogo: ");
+        String play = teclado.nextLine();
+
+        if (play.equals("play")) {
+            String[][] mar = new String[10][10];
+            String[] objetos = {"P" ,"E", "C", "S", "N"};
+
+            int cont = 0; //Gerar os navios em posições aleatorias
+            for (int i = 0; i < 10; i++) {
+                Random h = new Random();
+                int x = h.nextInt(objetos.length);
+                int y = h.nextInt(1);// 0 = linha, 1 = coluna
+                int v = h.nextInt(10);
+                for (int j = 0; j < 10; j++) {
+                    if (y == 0) {
+                        if (cont >= 0 && cont != 5) {
+                            mar[v][0] = objetos[x];
+                            if (mar[v][0].equals("P")) {
+                                for (int k = 1; k <= 4; k++) {
+                                    mar[v + k][0] = "P";
+                                }
+                            }
+                            if (mar[v][0].equals("E")) {
+                                for (int k = 1; k <= 3; k++) {
+                                    mar[v + k][0] = "E";
+                                }
+                            }
+                            if (mar[v][0].equals("C")) {
+                                for (int k = 1; k <= 2; k++) {
+                                    mar[v + k][0] = "C";
+                                }
+                            }
+                            if (mar[v][0].equals("S")) {
+                                for (int k = 1; k <= 2; k++) {
+                                    mar[v + k][0] = "S";
+                                }
+                            }
+                            if (mar[v][0].equals("N")) {
+                                for (int k = 1; k <= 3; k++) {
+                                    mar[v + k][0] = "N";
+                                }
+                            }
+                            cont++;
+                        }
+                    }
+                    if(y == 1){
+                        if (cont >= 0 && cont != 5) {
+                            mar[0][v] = objetos[x];
+                            if (mar[0][v].equals("P")) {
+                                for (int k = 1; k <= 4; k++) {
+                                    mar[0][v + k] = "P";
+                                }
+                            }
+                            if (mar[0][v].equals("E")) {
+                                for (int k = 1; k <= 3; k++) {
+                                    mar[0][v + k] = "E";
+                                }
+                            }
+                            if (mar[0][v].equals("C")) {
+                                for (int k = 1; k <= 2; k++) {
+                                    mar[0][v + k] = "C";
+                                }
+                            }
+                            if (mar[0][v].equals("S")) {
+                                for (int k = 1; k <= 2; k++) {
+                                    mar[0][v + k] = "S";
+                                }
+                            }
+                            if (mar[0][v].equals("N")) {
+                                for (int k = 1; k <= 3; k++) {
+                                    mar[0][v + k] = "N";
+                                }
+                            }
+                            cont++;
+                        }
+                    }
+                    //verificar se no lugar onde vai ser colocado
+                    for (int b = 0;  b< 10;b++) {
+
+                        mar[b][j] = ". ";
+                        cont++;
+                    }
+
+                }
+                for (int o = 0; o < 10; o++) {
+                    for (int j = 0; j < 10; j++) {
+                        System.out.print(mar[o][j]);
+                    }
+                    System.out.println();
+                }
+            }
+        }
     }
 }

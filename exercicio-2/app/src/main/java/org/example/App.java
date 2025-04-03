@@ -4,7 +4,6 @@
 package org.example;
 
 import java.text.DecimalFormat;
-import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
@@ -15,7 +14,7 @@ public class App {
             String cor3 = args[2];
             String cor4 = args[3];
 
-            int faixa1 = 0, faixa2 = 0;
+            int faixa1, faixa2 = 0;
             double m = 0, tlr = 0;
 
             switch (cor1) {
