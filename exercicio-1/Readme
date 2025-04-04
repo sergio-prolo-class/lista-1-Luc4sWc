@@ -1,0 +1,31 @@
+Bem basicamente o programa é simples: você tem 3 opções que pode ser retângulo, triângulo e losango.
+
+Para o losango e eo triângulo você coloca 2 argumentos: o nome (se é triângulo ou losango) e o tamanho que você quer que ele tenha.
+Se você digita: triangulo 5, ele vai imprimir um triangulo retangulo assim:
+
+        *
+       **
+      ***
+     ****
+    *****
+____________
+
+Se for um losango (mesmo modelo do exemplo acima) vai ser assim:
+
+        *
+       ***
+      *****
+       ***
+        *
+____________________________________________________________________________________________________________________________________________
+Se for um retângulo você vai ter de digitar 3 argumentos: nome (escreve sem acento tanto pra esse quanto pro triângulo) e base e altura.
+
+Ex: retangulo 8 5
+
+     ********
+     *      *
+     *      *
+     *      *
+     ********
+
+E é basicamente isso, se você escrever valores negativos ou nomes diferentes das opçoes ele vai te mandar mensagens de erro personalizadas para cada situação (com frase motivacional!).

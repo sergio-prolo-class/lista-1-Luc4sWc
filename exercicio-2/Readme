@@ -1,0 +1,14 @@
+Opa e aí? Tudo certo?
+
+Basicamente meu programa funciona dessa forma: você pode digitar 3 ou até 4 argumentos que são as duas cores e o multiplicador ou ainda junto disso tudo a tolerância o resistor.
+
+Depois que você digita esses argumentos ele vai lhe mostrar uma mensagem falando a resistencia em Ohms, usando escalas de K, M, G ou sem pq o valor é pequeno.
+
+Ex: amarelo branco verde azul
+       1      2      3    4  :argumentos
+
+mensagem: Resistência: 4,9 M Ohms (+- 0,25%)
+
+todas as tolerâncias e medidas foram usadas do slide passado em sala.
+
+E é isso, digitou uma cor que não devia ou mais/menos argumentos do que 4, errou a escrita. Não se preocupe tem mensagem de erro para cada um desses citados e explicando o que você tem que fazer =)
