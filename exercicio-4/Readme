@@ -1,0 +1,12 @@
+Se você está lendo esse readme significa que eu terminei tudo. Ufa!
+
+Bem esse programa é tão simples que a única explicação de como ele funciona é: digite um arquivo com o tabuleiro da batalha naval
+e é isso, basicamente ele vai ter dizer se esse tabuleiro é válido ou não com base nestas condições:
+
+• não tem a dimensão correta de 10×10 casas;
+• inclui navios desconhecidos;
+• não inclui um navio de cada tipo;
+• inclui múltiplos navios do mesmo tipo; ou
+• inclui navios que não estão na horizontal ou vertical
+
+Se não tiver de acordo ele printa: Tabuleiro Inválido! e se tiver de acordo: Tabuleiro Válido!
