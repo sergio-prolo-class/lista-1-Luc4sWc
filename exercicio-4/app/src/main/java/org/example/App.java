@@ -1,62 +1,59 @@
 package org.example;
 
-import java.io.*;
 import java.util.Scanner;
 
 public class App {
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) {
+        Scanner leitor = new Scanner(System.in);
+        int navios_desconhecidos = 0;
 
-            File arquivo = new File(args[0]);
-            Scanner leitor = new Scanner(arquivo);
-            int navios_desconhecidos = 0;
+        String[][] mar = new String[10][10];
+        int linha = 0;
+        int[] linhaP = new int[10], linhaE = new int[10], linhaC = new int[10], linhaS = new int[10], linhaN = new int[10];
+        int[] colunaP = new int[10], colunaE = new int[10], colunaC = new int[10], colunaS = new int[10], colunaN = new int[10];
+        int contC = 0, contN = 0, contP = 0, contE = 0, contS = 0;
 
-            String[][] mar = new String[10][10];
-            int linha = 0;
-            int[] linhaP = new int[10], linhaE = new int[10], linhaC = new int[10], linhaS = new int[10], linhaN = new int[10];
-            int[] colunaP = new int[10], colunaE = new int[10], colunaC = new int[10], colunaS = new int[10], colunaN = new int[10];
-            int contC = 0, contN = 0, contP = 0, contE = 0, contS = 0;
+        while (leitor.hasNextLine() && linha < 10) {
+            String[] elementos = leitor.nextLine().split(" ");
 
-            while (leitor.hasNextLine() && linha < 10) {
-                String[] elementos = leitor.nextLine().split(" ");
-
-                if (elementos.length != 10) {//não tem dimensão 10x10
-                    System.out.println("Tabuleiro Inválido!");
-                    return;
-                }
-
-                for (int coluna = 0; coluna < 10; coluna++) {
-                    mar[linha][coluna] = elementos[coluna];
-                    if(!(elementos[coluna].equals("P") || elementos[coluna].equals("N") || elementos[coluna].equals("S") || elementos[coluna].equals("E") || elementos[coluna].equals("C") || elementos[coluna].equals("."))){
-                        navios_desconhecidos++;
-                    }
-                    if (elementos[coluna].equals("P")) {
-                        linhaP[contP] = linha;
-                        colunaP[contP] = coluna;
-                        contP++;
-                    }
-                    if (elementos[coluna].equals("E")) {
-                        linhaE[contE] = linha;
-                        colunaE[contE] = coluna;
-                        contE++;
-                    }
-                    if (elementos[coluna].equals("C")) {
-                        linhaC[contC] = linha;
-                        colunaC[contC] = coluna;
-                        contC++;
-                    }
-                    if (elementos[coluna].equals("S")) {
-                        linhaS[contS] = linha;
-                        colunaS[contS] = coluna;
-                        contS++;
-                    }
-                    if (elementos[coluna].equals("N")) {
-                        linhaN[contN] = linha;
-                        colunaN[contN] = coluna;
-                        contN++;
-                    }
-                }
-                linha++;
+            if (elementos.length != 10) {//não tem dimensão 10x10
+                System.out.println("Tabuleiro Inválido!");
+                return;
             }
+
+            for (int coluna = 0; coluna < 10; coluna++) {
+                mar[linha][coluna] = elementos[coluna];
+                if(!(elementos[coluna].equals("P") || elementos[coluna].equals("N") || elementos[coluna].equals("S") || elementos[coluna].equals("E") || elementos[coluna].equals("C") || elementos[coluna].equals("."))){
+                    navios_desconhecidos++;
+                }
+                if (elementos[coluna].equals("P")) {
+                    linhaP[contP] = linha;
+                    colunaP[contP] = coluna;
+                    contP++;
+                }
+                if (elementos[coluna].equals("E")) {
+                    linhaE[contE] = linha;
+                    colunaE[contE] = coluna;
+                    contE++;
+                }
+                if (elementos[coluna].equals("C")) {
+                    linhaC[contC] = linha;
+                    colunaC[contC] = coluna;
+                    contC++;
+                }
+                if (elementos[coluna].equals("S")) {
+                    linhaS[contS] = linha;
+                    colunaS[contS] = coluna;
+                    contS++;
+                }
+                if (elementos[coluna].equals("N")) {
+                    linhaN[contN] = linha;
+                    colunaN[contN] = coluna;
+                    contN++;
+                }
+            }
+            linha++;
+        }
 
         if (linha != 10) {// tabuleiro não tem dim 10x10
             System.out.println("Tabuleiro Inválido!");
